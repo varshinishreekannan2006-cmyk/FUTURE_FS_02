@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+body{
+    background:#f4f6f9;
+}
+
+.card-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#2c3e50;
+    margin-bottom:20px;
+}
+</style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card-box">
+
+<h1>Recruitment CRM Dashboard</h1>
+
+<div class="mb-4">
+
+<a href="index.html" class="btn btn-primary">
+➕ Add Candidate
+</a>
+
+<a href="view.html" class="btn btn-success">
+📋 View Candidates
+</a>
+
+<a href="dashboard.html" class="btn btn-dark">
+📊 Dashboard
+</a>
+
+</div>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-4">
+<div class="card p-3 text-center">
+<h3>Total Candidates</h3>
+<h1 id="total">0</h1>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card p-3 text-center">
+<h3>Applied</h3>
+<h1 id="applied">0</h1>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card p-3 text-center">
+<h3>Interview</h3>
+<h1 id="interview">0</h1>
+</div>
+</div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+<div class="col-md-6">
+<div class="card p-3 text-center">
+<h3>Selected</h3>
+<h1 id="selected">0</h1>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card p-3 text-center">
+<h3>Rejected</h3>
+<h1 id="rejected">0</h1>
+</div>
+</div>
+
+</div>
+<script>
+
+fetch("/candidates")
+.then(res => res.json())
+.then(data => {
+
+    document.getElementById("total").innerText = data.length;
+
+    document.getElementById("applied").innerText =
+        data.filter(c => c.status === "Applied").length;
+
+    document.getElementById("interview").innerText =
+        data.filter(c => c.status === "Interview").length;
+
+    document.getElementById("selected").innerText =
+        data.filter(c => c.status === "Selected").length;
+
+    document.getElementById("rejected").innerText =
+        data.filter(c => c.status === "Rejected").length;
+
+});
+
+</script>
+    </div>
+    </div>
+</body>
+</html>
