@@ -48,16 +48,16 @@ How to Run:
 
 1. Clone the repository
 git clone https://github.com/varshinishreekannan2006-cmyk/recruitment-crm.git
-2. Open the project folder
+3. Open the project folder
 cd recruitment-crm
-3. Install dependencies
+5. Install dependencies
 npm install
-4. Start the server
+7. Start the server
 node server.js
-5. Open in your browser
+9. Open in your browser
 http://localhost:3000/index.html
 
 GitHub Repository Link:
 
-
+https://github.com/varshinishreekannan2006-cmyk/FUTURE_FS_02
 
